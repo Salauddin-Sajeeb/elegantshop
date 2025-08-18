@@ -1,4 +1,5 @@
 // server/db.ts
+import "dotenv/config";
 import pg from "pg"; // CJS default import
 import { drizzle } from "drizzle-orm/node-postgres";
 
