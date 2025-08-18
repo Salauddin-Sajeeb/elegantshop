@@ -1,1 +1,12 @@
-[]
+[
+  {
+    "name": "test",
+    "email": "abc@gmail.com",
+    "phone": "01723746474",
+    "interestedProducts": [
+      "7f4f93cc-e17f-4805-af16-6c16314f3e00"
+    ],
+    "id": "b6e062f5-430d-4d8d-94c4-7fe2f09b3f06",
+    "createdAt": "2025-08-18T08:51:11.210Z"
+  }
+]

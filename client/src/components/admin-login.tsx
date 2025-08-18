@@ -103,12 +103,6 @@ export function AdminLogin({ isOpen, onClose, onSuccess }: AdminLoginProps) {
             )}
           </div>
 
-          <div className="text-sm text-slate-600 dark:text-slate-400 bg-slate-50 dark:bg-slate-800 p-3 rounded-lg">
-            <p><strong>Demo Credentials:</strong></p>
-            <p>Username: admin</p>
-            <p>Password: admin123</p>
-          </div>
-
           <div className="flex space-x-3 mt-6">
             <Button
               type="button"

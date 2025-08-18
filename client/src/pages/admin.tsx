@@ -74,11 +74,7 @@ export default function Admin() {
                 Access Admin Panel
               </Button>
 
-              <div className="text-sm text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 p-4 rounded-lg">
-                <p><strong>Demo Access:</strong></p>
-                <p>Username: admin</p>
-                <p>Password: admin123</p>
-              </div>
+             
             </div>
           </CardContent>
         </Card>

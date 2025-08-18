@@ -1,1 +1,14 @@
-[]
+[
+  {
+    "name": "test",
+    "description": "",
+    "price": "1000",
+    "category": "electronics",
+    "image": "",
+    "stock": 0,
+    "rating": "0",
+    "featured": false,
+    "id": "7f4f93cc-e17f-4805-af16-6c16314f3e00",
+    "createdAt": "2025-08-18T08:50:51.875Z"
+  }
+]
