@@ -11,7 +11,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { loginSchema, type LoginRequest } from "@shared/schema";
 import { useToast } from "@/hooks/use-toast";
 import { Shield } from "lucide-react";
-
+  //MyStrongPass!123
 interface AdminLoginProps {
   isOpen: boolean;
   onClose: () => void;
