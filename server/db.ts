@@ -1,14 +1,16 @@
 // server/db.ts
-import { Pool } from "pg";
+import pg from "pg"; // CJS default import
 import { drizzle } from "drizzle-orm/node-postgres";
+
+const { Pool } = pg;
 
 if (!process.env.DATABASE_URL) {
   throw new Error("DATABASE_URL is not set");
 }
 
-// If your Neon URL already has `?sslmode=require`, this still works fine.
 export const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
+  // Neon requires TLS; safe even if your URL already has sslmode=require
   ssl: { rejectUnauthorized: false },
 });
 
