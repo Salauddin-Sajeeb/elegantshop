@@ -1,20 +1,16 @@
 import { Link, useLocation } from "wouter";
 import { useTheme } from "@/contexts/theme-context";
 import { useCart } from "@/contexts/cart-context";
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Sun, Moon, ShoppingCart, Menu, Settings } from "lucide-react";
+import { ShoppingCartSidebar } from "@/components/shopping-cart";
+import { Sun, Moon, ShoppingCart, Menu } from "lucide-react";
 
 export function Navigation() {
   const { theme, toggleTheme } = useTheme();
   const { getItemCount } = useCart();
   const [location] = useLocation();
-  const [showAdminTrigger, setShowAdminTrigger] = useState(false);
-
-  // Show admin trigger after 3 seconds for demo
-  setTimeout(() => setShowAdminTrigger(true), 3000);
 
   const navLinks = [
     { href: "/", label: "Home" },
@@ -67,38 +63,9 @@ export function Navigation() {
             </Button>
 
             {/* Shopping Cart */}
-            <Button
-              variant="ghost"
-              size="icon"
-              className="relative rounded-lg"
-              asChild
-            >
-              <Link href="/cart">
-                <ShoppingCart className="h-4 w-4" />
-                {getItemCount() > 0 && (
-                  <Badge
-                    variant="default"
-                    className="absolute -top-1 -right-1 h-5 w-5 flex items-center justify-center p-0 text-xs"
-                  >
-                    {getItemCount()}
-                  </Badge>
-                )}
-              </Link>
-            </Button>
+            <ShoppingCartSidebar />
 
-            {/* Admin Access */}
-            {showAdminTrigger && (
-              <Button
-                variant="secondary"
-                size="sm"
-                asChild
-              >
-                <Link href="/admin">
-                  <Settings className="w-4 h-4 mr-1" />
-                  Admin
-                </Link>
-              </Button>
-            )}
+
 
             {/* Mobile Menu */}
             <Sheet>
