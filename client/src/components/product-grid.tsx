@@ -10,6 +10,7 @@ import { Pagination, PaginationContent, PaginationItem, PaginationLink, Paginati
 import { Heart, Star, ShoppingCart } from "lucide-react";
 import { useCart } from "@/contexts/cart-context";
 import { CustomerContactModal } from "./customer-contact-modal";
+import { Link } from "wouter";
 
 const categories = [
   { id: "all", name: "All Products" },
@@ -124,11 +125,12 @@ export function ProductGrid() {
                   key={product.id}
                   className="group overflow-hidden hover:shadow-xl border-slate-200 dark:border-slate-700 transition-all duration-300 transform hover:-translate-y-1"
                 >
-                  <div className="relative overflow-hidden">
+                  <Link href={`/product/${product.id}`} className="block">
+                  <div className="relative overflow-hidden">   
                     <img
                       src={product.image}
                       alt={product.name}
-                      className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="w-full h-64 overflow-hidden flex items-center justify-center bg-white"
                     />
                     {product.featured && (
                       <Badge className="absolute top-2 right-2 bg-secondary text-secondary-foreground">
@@ -143,16 +145,15 @@ export function ProductGrid() {
                       <Heart className="h-4 w-4 text-slate-600 hover:text-red-500" />
                     </Button>
                   </div>
+                  </Link>
                   <CardContent className="p-4">
                     <h3 className="font-semibold text-slate-900 dark:text-white mb-2 line-clamp-1">
                       {product.name}
                     </h3>
-                    <p className="text-sm text-slate-600 dark:text-slate-400 mb-3 line-clamp-2">
-                      {product.description}
-                    </p>
+                    
                     <div className="flex items-center justify-between mb-3">
                       <span className="text-lg font-bold text-primary-600 dark:text-primary-400">
-                        ${parseFloat(product.price).toFixed(2)}
+                        ৳{parseFloat(product.price).toFixed(2)}
                       </span>
                       {product.rating && (
                         <div className="flex items-center space-x-1">

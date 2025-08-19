@@ -8,12 +8,15 @@ import { CartProvider } from "@/contexts/cart-context";
 import Home from "@/pages/home";
 import Admin from "@/pages/admin";
 import NotFound from "@/pages/not-found";
+import ProductDetails from "./pages/product-details";
+import ProductDetailsRoute from "./pages/product-details-route";
 
 function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/admin" component={Admin} />
+      <Route path="/product/:id" component={ProductDetailsRoute} />
       <Route component={NotFound} />
     </Switch>
   );
