@@ -130,7 +130,7 @@ export function ProductGrid() {
                     <img
                       src={product.image}
                       alt={product.name}
-                      className="w-full h-64 overflow-hidden flex items-center justify-center bg-white"
+                      className="w-full h-40 object-contain bg-white"
                     />
                     {product.featured && (
                       <Badge className="absolute top-2 right-2 bg-secondary text-secondary-foreground">
@@ -146,8 +146,8 @@ export function ProductGrid() {
                     </Button>
                   </div>
                   </Link>
-                  <CardContent className="p-4">
-                    <h3 className="font-semibold text-slate-900 dark:text-white mb-2 line-clamp-1">
+                  <CardContent className="p-3">
+                    <h3 className="font-semibold text-slate-600 dark:text-white mb-2 line-clamp-1">
                       {product.name}
                     </h3>
                     
@@ -168,7 +168,7 @@ export function ProductGrid() {
                       className="w-full"
                       onClick={() => handleAddToCart(product)}
                     >
-                      <ShoppingCart className="w-4 h-4 mr-2" />
+                      <ShoppingCart className="w-3 h-3 mr-1" />
                       Add to Cart
                     </Button>
                   </CardContent>
