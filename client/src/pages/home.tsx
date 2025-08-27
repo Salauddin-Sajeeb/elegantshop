@@ -49,6 +49,10 @@ export default function Home() {
                 <li><a href="#products" className="text-slate-400 hover:text-white transition-colors">Products</a></li>
                 <li><a href="#categories" className="text-slate-400 hover:text-white transition-colors">Categories</a></li>
                 <li><a href="#about" className="text-slate-400 hover:text-white transition-colors">About Us</a></li>
+                <li> <a className="text-slate-400 hover:text-white transition-colors" href="https://wa.me/8801890342817?text=Hi%20I%20came%20from%20your%20website" target="_blank">
+  Chat with me on WhatsApp
+</a>
+</li>
                 <li><a href="#contact" className="text-slate-400 hover:text-white transition-colors">Contact</a></li>
               </ul>
             </div>

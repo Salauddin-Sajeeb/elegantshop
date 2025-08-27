@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect } from "react";
-import { Product } from "@shared/schema";
+import { Product } from "server/shared/schema";
 
 interface CartItem extends Product {
   quantity: number;
