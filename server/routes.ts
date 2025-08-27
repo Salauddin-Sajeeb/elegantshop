@@ -1,6 +1,6 @@
 // server/routes.ts
 import type { Express, Request, Response, NextFunction } from "express";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import session from "express-session";
 import connectPg from "connect-pg-simple";
 import { storage } from "./storage.ts";
