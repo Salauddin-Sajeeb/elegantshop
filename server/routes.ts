@@ -3,14 +3,14 @@ import type { Express, Request, Response, NextFunction } from "express";
 import bcrypt from "bcryptjs";
 import session from "express-session";
 import connectPg from "connect-pg-simple";
-import { storage } from "./storage.ts";
-import { pool } from "./db.ts";
+import { storage } from "./storage.js";
+import { pool } from "./db.js";
 import {
   insertProductSchema,
   insertCategorySchema,
   insertCustomerSchema,
   loginSchema,
-} from "./shared/schema.ts";
+} from "./shared/schema.js";
 
 declare module "express-session" {
   interface SessionData {
