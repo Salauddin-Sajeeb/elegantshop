@@ -10,7 +10,7 @@ import {
   insertCategorySchema,
   insertCustomerSchema,
   loginSchema,
-} from "@shared/schema";
+} from "../shared/schema";
 
 declare module "express-session" {
   interface SessionData {
