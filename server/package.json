@@ -3,28 +3,29 @@
   "version": "1.0.0",
   "type": "module",
   "private": true,
+  "engines": {
+    "node": "22.x"
+  },
   "scripts": {
     "dev": "cross-env NODE_ENV=development tsx index.ts",
     "check": "tsc",
     "db:push": "drizzle-kit push"
   },
   "dependencies": {
-    "@neondatabase/serverless": "^0.10.4",
-    "bcrypt": "^6.0.0",
-    "bcryptjs": "^3.0.2",
-    "connect-pg-simple": "^10.0.0",
     "cors": "^2.8.5",
     "express": "^4.21.2",
     "express-session": "^1.18.2",
-    "pg": "^8.11.5"
+    "connect-pg-simple": "^10.0.0",
+    "pg": "^8.11.5",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^17.2.1",
+    "drizzle-orm": "^0.39.1"
   },
   "devDependencies": {
-    "@types/cors": "^2.8.19",
-    "@types/express": "4.17.21",
     "tsx": "^4.19.1",
-    "typescript": "5.6.3"
-  },
-  "engines": {
-    "node": "18.x"
+    "typescript": "5.6.3",
+    "@types/express": "4.17.21",
+    "@types/express-session": "^1.18.0",
+    "@types/node": "20.16.11"
   }
 }
