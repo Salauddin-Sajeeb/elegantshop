@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { api } from "@/lib/api";
-import { Product, Category, Customer } from "server/shared/schema";
+import { Product, Category, Customer } from "@shared/schema";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -14,7 +14,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { insertProductSchema, insertCategorySchema } from "server/shared/schema";
+import { insertProductSchema, insertCategorySchema } from "@shared/schema";
 import { useToast } from "@/hooks/use-toast";
 import { Box, CheckCircle, AlertTriangle, XCircle, Plus, Edit, Trash2, Package, Users, ShoppingCart, Settings } from "lucide-react";
 
