@@ -16,8 +16,8 @@ import {
   type InsertOrder,
   orders, orderStatusEnum
 
-} from "@shared/schema";
-import { db } from "./db";
+} from "@shared/schema.ts";
+import { db } from "./db.ts";
 import { eq, sql, and,desc } from "drizzle-orm"; //desc for ordering
 
 import { randomUUID } from "crypto";

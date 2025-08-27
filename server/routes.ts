@@ -3,8 +3,8 @@ import type { Express, Request, Response, NextFunction } from "express";
 import bcrypt from "bcrypt";
 import session from "express-session";
 import connectPg from "connect-pg-simple";
-import { storage } from "./storage";
-import { pool } from "./db";
+import { storage } from "./storage.ts";
+import { pool } from "./db.ts";
 import {
   insertProductSchema,
   insertCategorySchema,
