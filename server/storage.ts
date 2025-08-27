@@ -12,9 +12,14 @@ import {
   type InsertCustomer,
   type Admin,
   type InsertAdmin,
+  type Order,
+  type InsertOrder,
+  orders, orderStatusEnum
+
 } from "@shared/schema";
 import { db } from "./db";
-import { eq, sql, and } from "drizzle-orm";
+import { eq, sql, and,desc } from "drizzle-orm"; //desc for ordering
+
 import { randomUUID } from "crypto";
 
 // Remove JSONFileStorage — we're fully on Postgres now.
@@ -26,6 +31,10 @@ function omitUndefined<T extends Record<string, any>>(obj: T): Partial<T> {
 }
 
 export interface IStorage {
+   // Orders
+  getOrders(page?: number, limit?: number): Promise<{ orders: Order[]; total: number }>;
+  createOrder(order: InsertOrder): Promise<Order>;
+  updateOrderStatus(id: string, status: Order["status"]): Promise<Order | undefined>;
   // Products
   getProducts(
     page?: number,
@@ -65,6 +74,7 @@ export interface IStorage {
 }
 
 export class PostgresStorage implements IStorage {
+  
   // ---------- Products ----------
   async getProducts(
     page = 1,
@@ -243,6 +253,51 @@ export class PostgresStorage implements IStorage {
 
     return row as Admin;
   }
+
+  // ---------- Orders ----------
+  async getOrders(page = 1, limit = 20): Promise<{ orders: Order[]; total: number }> {
+    const offset = (page - 1) * limit;
+
+    const rows = await db
+      .select()
+      .from(orders)
+      .orderBy(desc(orders.createdAt))
+      .limit(limit)
+      .offset(offset);
+
+    const [{ count }] = await db
+      .select({ count: sql<number>`count(*)` })
+      .from(orders);
+
+    return { orders: rows as Order[], total: Number(count) };
+  }
+
+  async createOrder(input: InsertOrder): Promise<Order> {
+    // normalize total to string for DECIMAL write
+    const totalStr = String((input as any).total);
+    const [row] = await db
+      .insert(orders)
+      .values({
+        items: input.items,
+        customer: input.customer,
+        paymentMethod: input.paymentMethod ?? "cod",
+        total: totalStr,
+        // status and createdAt default in DB
+      })
+      .returning();
+    return row as Order;
+  }
+
+  async updateOrderStatus(id: string, status: Order["status"]): Promise<Order | undefined> {
+    const [row] = await db
+      .update(orders)
+      .set({ status })
+      .where(eq(orders.id, id))
+      .returning();
+    return (row as Order) ?? undefined;
+  }
 }
+
+
 
 export const storage = new PostgresStorage();
