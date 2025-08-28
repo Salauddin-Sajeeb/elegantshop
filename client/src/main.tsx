@@ -4,8 +4,10 @@ import "./index.css";
 import { Router } from "wouter";
 import { useHashLocation } from "./lib/useHashLocation";
 
+const root = createRoot(document.getElementById("root")!);
 
-createRoot(document.getElementById("root")!).render(<App />);
- <Router hook={useHashLocation}>
+root.render(
+  <Router hook={useHashLocation}>
     <App />
   </Router>
+);
