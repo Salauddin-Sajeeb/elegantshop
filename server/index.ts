@@ -4,7 +4,9 @@ import { registerRoutes } from "./routes.js";
 
 const app = express();
 
-const allowed = process.env.CORS_ORIGIN?.split(",") ?? ["http://localhost:5173"];
+const allowed = process.env.CORS_ORIGIN?.split(",") ?? [ "http://localhost:5173",
+  "http://localhost:5174",
+  "https://elegantshop-frontend.vercel.app"];
 app.use(cors({ origin: allowed, credentials: true }));
 app.use(express.json());
 
