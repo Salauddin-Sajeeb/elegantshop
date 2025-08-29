@@ -2,6 +2,7 @@
 
 ElegantShop is a modern full-stack e-commerce application built with a robust tech stack for both frontend and backend. It offers a seamless shopping experience and powerful admin features for managing products, categories, and customers.
 
+[Live Site](https://elegantshop-frontend.vercel.app/)
 ## ✨ Features
 
 - **🔑 Admin Authentication:** Login/logout, protected admin routes
