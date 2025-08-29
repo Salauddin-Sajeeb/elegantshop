@@ -7,7 +7,18 @@ const app = express();
 const allowed = process.env.CORS_ORIGIN?.split(",") ?? [ "http://localhost:5173",
   "http://localhost:5174",
   "https://elegantshop-frontend.vercel.app"];
-app.use(cors({ origin: allowed, credentials: true }));
+app.use(cors({
+  origin: (origin, cb) => {
+    if (!origin) return cb(null, true);
+    const ok = origin.startsWith("http://localhost:") ||
+               origin === "https://elegantshop-frontend.vercel.app";
+    cb(ok ? null : new Error("Not allowed by CORS"), ok);
+  },
+  credentials: true,
+  methods: ["GET","POST","PUT","PATCH","DELETE","OPTIONS"],
+  allowedHeaders: ["Content-Type","Authorization"],
+}));
+app.options("*", cors());
 app.use(express.json());
 
 // health
